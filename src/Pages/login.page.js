@@ -40,10 +40,9 @@ export class LoginPage {
     }
     async getErrorMessage() {
         try {
-            return await this.page.locator(this.locatorErrorMessage).textContent() || "" 
+            return await this.page.locator(this.locatorErrorMessage).textContent({ timeout:1000 }) || "" 
         } catch (error) {
-            console.log('Error getting zerror message:', error)
-            return null
+            return "";
         }
         
     }
