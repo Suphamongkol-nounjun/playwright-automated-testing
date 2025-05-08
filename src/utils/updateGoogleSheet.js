@@ -4,7 +4,7 @@ const path = require('path');
 
 // ค่าคงที่
 const SHEET_ID = '1q5mC34HAYerLMc0E9chU3nI5p38BLzYbfVhrZU48is4';
-const SHEET_NAME = 'Test UI';
+const SHEET_NAME = 'PlaywrightSacedemo';
 const CREDENTIALS_PATH = path.resolve(__dirname, '../credentials.json');
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 

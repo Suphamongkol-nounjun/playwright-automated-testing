@@ -96,6 +96,9 @@ validUser.forEach(({username, password}) => {
             await loginPage.clickLoginButton();
             expect(await loginPage.getErrorMessage()).not.toContain('is required')
             expect(loginPage.invalidUrl()).toBe(false);
+            //ต้องเพิ่มเคสกลับไปที่หน้า Login ไม่ได้ต้องกลับไปที่หน้า Product
+            
+
             await updateTestResult(testCaseId, 'Pass');
         } catch (error) {
             await updateTestResult(testCaseId, 'Fail');
