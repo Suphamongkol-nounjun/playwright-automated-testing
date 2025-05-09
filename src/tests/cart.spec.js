@@ -28,7 +28,7 @@ test.describe('CART FUNCTION', () => {
                 await productPage.addBikeLight();
                 expect(await productPage.getCountCart()).toContain('2')
 
-                await cartPage.goto()
+                await productPage.clickCartIcon()
                 expect(cartPage.invalidUrl()).toBe(true);
 
                 expect(await cartPage.getCountCart()).toEqual(await cartPage.getClassAmount())
@@ -41,7 +41,7 @@ test.describe('CART FUNCTION', () => {
                 await productPage.addFleeceJacket();
                 expect(await productPage.getCountCart()).toContain('4')
 
-                await cartPage.goto()
+                await productPage.clickCartIcon()
                 expect(cartPage.invalidUrl()).toBe(true);
 
                 expect(await cartPage.getCountCart()).toEqual(await cartPage.getClassAmount())
@@ -70,7 +70,7 @@ test.describe('CART FUNCTION', () => {
                 expect(await productPage.getCountCart()).toContain('2')
 
 
-                await cartPage.goto()
+                await productPage.clickCartIcon()
                 expect(cartPage.invalidUrl()).toBe(true);
 
                 const actual = await cartPage.getProductNamesandPrices();
@@ -98,7 +98,7 @@ test.describe('CART FUNCTION', () => {
                 await productPage.addBikeLight();
                 expect(await productPage.getCountCart()).toContain('2')
 
-                await cartPage.goto()
+                await productPage.clickCartIcon()
                 expect(cartPage.invalidUrl()).toBe(true);
 
 
@@ -126,7 +126,7 @@ test.describe('CART FUNCTION', () => {
                 await productPage.addBikeLight();
                 expect(await productPage.getCountCart()).toContain('2')
 
-                await cartPage.goto()
+                await productPage.clickCartIcon()
                 expect(cartPage.invalidUrl()).toBe(true);
 
                 await cartPage.clickContinueShopping()
@@ -155,7 +155,7 @@ test.describe('CART FUNCTION', () => {
                     await productPage.addBikeLight();
                     expect(await productPage.getCountCart()).toContain('2')
 
-                    await cartPage.goto()
+                    await productPage.clickCartIcon()
                     expect(cartPage.invalidUrl()).toBe(true);
 
                     await cartPage.clickCheckout()
