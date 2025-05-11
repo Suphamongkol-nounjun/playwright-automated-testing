@@ -3,6 +3,8 @@ import { LoginPage } from './login.page';
 import { ProductPage } from './product.page';
 import { CartPage } from './cart.page';
 import { CheckInfoPage } from './checkinfo.page';
+import { CheckOutOverViewPage } from './checkoutoverview.page';
+import { CheckOutCompletePage } from './checkoutcomplete.page';
 
 
 type baseFixtures = {
@@ -11,6 +13,8 @@ type baseFixtures = {
     productPage: ProductPage,
     cartPage: CartPage,
     checkInfoPage: CheckInfoPage,
+    checkoutOverviewPage: CheckOutOverViewPage,
+    checkoutCompletePage: CheckOutCompletePage,
 }
 
 export const test = base.extend<baseFixtures>({
@@ -26,4 +30,10 @@ export const test = base.extend<baseFixtures>({
     checkInfoPage: async ({ page }, use) => {
         await use(new CheckInfoPage(page));
     },
+    checkoutOverviewPage: async ({ page }, use) => {
+        await use(new CheckOutOverViewPage(page));
+    },
+    checkoutCompletePage: async ({ page }, use) => {
+        await use(new CheckOutCompletePage(page));
+    }
 });

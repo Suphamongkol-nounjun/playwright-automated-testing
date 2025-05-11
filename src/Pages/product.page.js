@@ -246,6 +246,10 @@ export class ProductPage {
     async clickCartIcon() {
         await this.page.locator(this.locatorCartIcon).click()
     }
+    async getPricefromArray(productsArray) {
+        const prices = productsArray.map(product => parseFloat(product.price.replace('$', '')));
+        return Number(prices.reduce((a, b) => a + b, 0).toFixed(2));
+    }
     
 
 

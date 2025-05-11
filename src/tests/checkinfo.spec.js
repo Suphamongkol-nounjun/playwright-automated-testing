@@ -28,7 +28,7 @@ test.describe('CHECKOUT INFORMATION PAGE FUNCTION', () => {
         await productPage.addBikeLight();
         expect(await productPage.getCountCart()).toContain('2')
 
-        await cartPage.goto()
+        await productPage.clickCartIcon()
         expect(cartPage.invalidUrl()).toBe(true);
 
         await cartPage.clickCheckout()
@@ -62,7 +62,7 @@ test.describe('CHECKOUT INFORMATION PAGE FUNCTION', () => {
             await productPage.addBikeLight();
             expect(await productPage.getCountCart()).toContain('2')
 
-            await cartPage.goto()
+            await productPage.clickCartIcon()
             expect(cartPage.invalidUrl()).toBe(true);
 
             await cartPage.clickCheckout()
@@ -97,15 +97,11 @@ test.describe('CHECKOUT INFORMATION PAGE FUNCTION', () => {
             await productPage.addBikeLight();
             expect(await productPage.getCountCart()).toContain('2')
 
-            await cartPage.goto()
+            await productPage.clickCartIcon()
             expect(cartPage.invalidUrl()).toBe(true);
 
             await cartPage.clickCheckout()
             expect(checkInfoPage.invalidUrl()).toBe(true);
-
-            console.log('First Name:', firstName);
-            console.log('Last Name:', lastName);
-            console.log('Zip Code:', zipCode);
 
             await checkInfoPage.fillFirstName(firstName)
             await checkInfoPage.clickContinue()          
@@ -140,15 +136,11 @@ test.describe('CHECKOUT INFORMATION PAGE FUNCTION', () => {
             await productPage.addBikeLight();
             expect(await productPage.getCountCart()).toContain('2')
 
-            await cartPage.goto()
+            await productPage.clickCartIcon()
             expect(cartPage.invalidUrl()).toBe(true);
 
             await cartPage.clickCheckout()
             expect(checkInfoPage.invalidUrl()).toBe(true);
-
-            console.log('First Name:', firstName);
-            console.log('Last Name:', lastName);
-            console.log('Zip Code:', zipCode);
 
             await checkInfoPage.fillFirstName(firstName)
             await checkInfoPage.fillLastName(lastName)
