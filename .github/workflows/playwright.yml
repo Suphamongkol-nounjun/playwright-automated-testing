@@ -1,27 +1,55 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
 jobs:
   test:
-    timeout-minutes: 60
     runs-on: ubuntu-latest
+    timeout-minutes: 60
+
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      # เช็คเอาท์โค้ด
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ติดตั้ง Node.js (ใช้ LTS ล่าสุด)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      # ติดตั้ง dependencies จาก package-lock.json
+      - name: Install dependencies
+        run: npm ci
+
+      # ติดตั้ง Playwright browsers (chromium, firefox, webkit)
+      - name: Install Playwright Browsers
+        run: |
+          npx playwright install chromium
+          npx playwright install firefox
+          npx playwright install webkit
+
+      # ตรวจสอบเวอร์ชัน Playwright และ node
+      - name: Show environment info
+        run: |
+          node -v
+          npm -v
+          npx playwright --version
+          npx playwright show-browsers
+
+      # รัน Playwright tests แบบ headless และ verbose log
+      - name: Run Playwright tests
+        run: npm run test -- --reporter=list --verbose
+
+      # อัปโหลดรายงานผลจาก playwright-report folder
+      - name: Upload Playwright report artifact
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
