@@ -33,13 +33,6 @@ jobs:
           npx playwright install firefox
           npx playwright install webkit
 
-      # ตรวจสอบเวอร์ชัน Playwright และ node
-      - name: Show environment info
-        run: |
-          node -v
-          npm -v
-          npx playwright --version
-          npx playwright show-browsers
 
       # รัน Playwright tests แบบ headless และ verbose log
       - name: Run Playwright tests
