@@ -90,5 +90,6 @@ export class CartPage {
     async clickCheckout() {
         await this.page.locator(this.locatorCheckout).click()
     }  
+    
 }
 
