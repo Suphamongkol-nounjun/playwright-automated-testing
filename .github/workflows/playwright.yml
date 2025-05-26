@@ -36,7 +36,7 @@ jobs:
 
       # รัน Playwright tests แบบ headless และ verbose log
       - name: Run Playwright tests
-        run: npm run test -- --reporter=list --verbose
+        run: npx playwright test --reporter=list
 
       # อัปโหลดรายงานผลจาก playwright-report folder
       - name: Upload Playwright report artifact
